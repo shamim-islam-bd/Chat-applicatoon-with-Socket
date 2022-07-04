@@ -1,7 +1,7 @@
 const createError = require('http-errors');
 
 // 404 handlers (Not found)
-function notFound(req, res, next){
+function notFound( req, res, next){
     next(createError(404, "Your requst content not found."));
 }
 
