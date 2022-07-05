@@ -5,12 +5,17 @@ const express = require('express');
 const {getLogin, doLogin, logout} = require('../controller/loginControler')
 const decorateHtmlResponse = require('../middlewares/common/decorateHtmlResponse');
 const { doLoginValidator, dologinValidatorHandler } = require('../middlewares/login/loginValidator');
+const { redirectLoggedIn } = require("../middlewares/common/checkLogin");
 
 const router = express.Router();
 
 
 // login page
-router.get("/", decorateHtmlResponse("Login"), getLogin);
+router.get("/",
+ decorateHtmlResponse("Login"),
+ redirectLoggedIn,
+ getLogin
+ );
 
 // process login
 router.post("/",   
