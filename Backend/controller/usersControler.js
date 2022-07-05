@@ -11,7 +11,7 @@ const User = require("../models/People");
 async function getUsers(req, res, next) {
   try {
     const users = await User.find();
-    res.render("users", {
+    res.render("users", {  
       users: users,
     });
   } catch (err) {
